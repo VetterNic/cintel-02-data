@@ -97,6 +97,20 @@ with ui.navset_card_tab(id="tab"):
             )
             return plty_hist
 
+# Display Histogram with SNS
+
+    with ui.nav_panel("Sns Hist"):
+        @render.plot
+        def sns_gram():
+            sns_hist = sns.histplot(
+                data=penguins_df,  # Use 'data' instead of 'data_frame'
+                x="bill_length_mm",
+                bins=input.sns_bin_count())
+            sns_hist.set_xlabel("Bill Length") 
+            sns_hist.set_ylabel("Count") 
+            sns_hist.set_title("Length of Bill")  
+            return sns_hist
+
 with ui.layout_columns():
 
     @render_plotly
