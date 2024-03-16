@@ -111,13 +111,20 @@ with ui.navset_card_tab(id="tab"):
             sns_hist.set_title("Length of Bill")  
             return sns_hist
 
-with ui.layout_columns():
+# Display a plotly scatterplot
 
-    @render_plotly
-    def plot1():
-        return px.histogram(px.data.tips(), y="tip")
+@render_plotly
+def plotly_scatterplot():
+    scatter_plot = px.scatter(
+        data_frame=penguins_df,
+        x="flipper_length_mm",
+        y="body_mass_g",
+        color="species",
+        title="Plotly Scatter: Species",
+        labels={"flipper_length_mm": "Flipper Length (mm)", "body_mass_g": "Body Mass (g)"},
+        hover_data={"species": True}
+    )
+    return scatter_plot
 
-    @render_plotly
-    def plot2():
-        return px.histogram(px.data.tips(), y="total_bill")
+
 
