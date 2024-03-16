@@ -48,6 +48,17 @@ with ui.sidebar(open="open"):
 #   the default value for the input (as an integer)
     ui.input_slider("sns_bin_count", "Sns Bin Count", 1, 100, 10)
 
+# Use ui.input_checkbox_group() to create a checkbox group input to filter the species
+#   pass in five arguments:
+#   the name of the input (in quotes), e.g.  "selected_species_list"
+#   the label for the input (in quotes)
+#   a list of options for the input (in square brackets) as ["Adelie", "Gentoo", "Chinstrap"]
+#   a keyword argument selected= a list of selected options for the input (in square brackets)
+#   a keyword argument inline= a Boolean value (True or False) as you like
+    ui.input_checkbox_group("species_selected","Select Species", 
+                            ["Adelie", "Gentoo", "Chinstrap"],
+                            selected=["Adelie", "Gentoo", "Chinstrap"])
+
 with ui.layout_columns():
 
     @render_plotly
