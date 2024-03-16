@@ -39,6 +39,15 @@ with ui.sidebar(open="open"):
     
     ui.input_numeric("px_bin_count", "Bin Count", 10)
 
+# Use ui.input_slider() to create a slider input for the number of Seaborn bins
+#   pass in four arguments:
+#   the name of the input (in quotes), e.g. "seaborn_bin_count"
+#   the label for the input (in quotes)
+#   the minimum value for the input (as an integer)
+#   the maximum value for the input (as an integer)
+#   the default value for the input (as an integer)
+    ui.input_slider("sns_bin_count", "Sns Bin Count", 1, 100, 10)
+
 with ui.layout_columns():
 
     @render_plotly
