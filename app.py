@@ -79,6 +79,24 @@ with ui.layout_columns():
             def vet_penguin_data_grid():
                 return render.DataGrid(penguins_df)
 
+# Display Histogram with plotly
+        
+with ui.navset_card_tab(id="tab"):
+    with ui.nav_panel("Plty Hist"):
+        @render_plotly
+        def plot():
+            plty_hist = px.histogram(
+                data_frame=penguins_df,
+                x=input.selected_attribute(),
+                nbins=input.px_bin_count(),
+                color="species"
+            ).update_layout(
+                title={"text": "Penguin Mass", "x": 0.5},
+                yaxis_title="Count",
+                xaxis_title="selected_attribute",
+            )
+            return plty_hist
+
 with ui.layout_columns():
 
     @render_plotly
