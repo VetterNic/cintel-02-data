@@ -58,6 +58,26 @@ with ui.sidebar(open="open"):
     ui.input_checkbox_group("species_selected","Select Species", 
                             ["Adelie", "Gentoo", "Chinstrap"],
                             selected=["Adelie", "Gentoo", "Chinstrap"])
+    # Use ui.a() to add a hyperlink to the sidebar
+#   pass in two arguments:
+#   the text for the hyperlink (in quotes), e.g. "GitHub"
+#   a keyword argument href= the URL for the hyperlink (in quotes), e.g. your GitHub repo URL
+#   a keyword argument target= "_blank" to open the link in a new tab
+    ui.a("VetterM2 GitHub", "https://github.com/VetterNic/cintel-02-data", target="_blank")
+
+
+
+    # Display DataTable and Display Data Grid
+with ui.layout_columns():
+    with ui.accordion(id="accord", open="open"):
+        with ui.accordion_panel("DataTable"):
+            @render.data_frame
+            def vet_penguin_datatable():
+                return render.DataTable(penguins_df)
+        with ui.accordion_panel("Data Grid"):
+            @render.data_frame
+            def vet_penguin_data_grid():
+                return render.DataGrid(penguins_df)
 
 with ui.layout_columns():
 
