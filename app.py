@@ -18,7 +18,26 @@ ui.page_opts(title="Vetter M2 Penguins", fillable=True)
 # Use the ui.sidebar() function to create a sidebar
 # Set the open parameter to "open" to make the sidebar open by default
 # Use a with block to add content to the sidebar
+with ui.sidebar(open="open"):
+    ui.h2("Sidebar")
+    ui.hr()
+    
+# Use ui.input_selectize() to create a dropdown input to choose a column
+#   pass in three arguments:
+#   the name of the input (in quotes), e.g., "selected_attribute"
+#   the label for the input (in quotes)
+#   a list of options for the input (in square brackets) 
+#   e.g. ["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"]
+    
+    ui.input_selectize("selected_species", "Species Selected", 
+                       ["Adelie", "Chinstrap", "Gentoo"])
 
+# Use ui.input_numeric() to create a numeric input for the number of Plotly histogram bins
+#   pass in two arguments:
+#   the name of the input (in quotes), e.g. "plotly_bin_count"
+#   the label for the input (in quotes)
+    
+    ui.input_numeric("px_bin_count", "Bin Count", 10)
 
 with ui.layout_columns():
 
