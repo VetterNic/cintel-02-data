@@ -1,3 +1,11 @@
 pandas
 plotly
 palmerpenguins
+
+import plotly.express as px
+import seaborn as sns
+import palmerpenguins
+from shiny import render
+from shiny import reactive, render, req
+from shiny.express import input, ui
+from shinywidgets import render_plotly
